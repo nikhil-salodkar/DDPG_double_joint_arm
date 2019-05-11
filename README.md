@@ -2,14 +2,14 @@
 
 ## Introduction
 
-In this project we will train an agent with double jointed arm to move to its target location and be in its target location.
+In this project we will train an agent with double jointed arm to move to its target (in this case green spheres) and be in contact with its target.
 The environment and a trained agent looks like this:
 
-![Alt Text](https://user-images.githubusercontent.com/10624937/42135619-d90f2f28-7d12-11e8-8823-82b970a54d7e.gif)
+![Alt Text](images/reacher.gif)
 
 
-The simulated environment is Unity based wherein the agent has an arm having two joints and the aim is to move and arm into its target location and keep it there for as long as possible in an episode.
-**A reward of +0.1 is received on each step that the agent is at its location**. Thus, the goal of agent is to maintain its position at target location for as many time steps as possible.
+The simulated environment is Unity based Reacher environment wherein the agent has an arm having two joints and the aim is to move the arm in contact to its target and keep it connected to target for as long as possible in an episode.
+**A reward of +0.1 is received on each step that the agent is at its target**. Thus, the goal of agent is to maintain its position at target for as many time steps as possible.
 
 The simulated environment provides a simplified **state space having 33 dimensions** corresponding to the agent's position, rotation, velocity, and angular velocities of the arm. **There are four actions in continuous domain forming a vector with four numbers each representing torque applicable to two joints :**
 
