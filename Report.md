@@ -74,7 +74,7 @@ moving to the next timestep.
 UPDATE_EVERY designates after how many time steps should we attempt to do learning. It is observed that if we attempt to do learning at each time step then the learning results in much 
 fluctuations and not able to converge.
 
-Another important set of parameters which are necessary to be set properly are **parameters pertaining to Noise following Ornstein-Uhlenbeck process**. In this project, theta is set to 0.04 and sigma is set to 0.02. If higher values are set for these parameters
+Another important set of parameters which are necessary to be set properly are **parameters pertaining to Noise following Ornstein-Uhlenbeck process**. In this project, theta is set to 0.03 and sigma is set to 0.02. If higher values are set for these parameters
 the actor is not able to train faster and converge because the noise factor becomes high, thus, it becomes difficult for the training algorithm to zero in to the optimal policy.
 
 **Batch normalization turned out to be really helpful** Without batch normalizing layers the models were not able to converge faster. I observed that adding each normalization layer one by one resulted in significant improvement.
