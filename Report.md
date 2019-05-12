@@ -50,3 +50,43 @@ The DDPG algorithm as specified in the paper is shown below for convenience :
 
 ![Alt Text](images/ddpg_algorithm.PNG)
 
+## Neural Network Architecture
+
+In this project two neural networks are used one for actor and one for critic. 
+Actor is created using a feed forward network with two hidden layers having 400 and 300 neurons each. Batch normalization layers are used after both the hidden layer for the purpose of batch normalization. ReLu is used as activation for each layer except the output layer which uses tanh as activation function.
+Critic is created using a feed forward network with two hidden layers having 400 and 300 neurons each. Batch normalization layers are used here too after both the hidden layer. ReLu is used as activation function for all hidden layers.
+
+## Hyper-parameters
+
+The important hyper-parameter values which we have used are:
+- BUFFER_SIZE = int(1e6): replay buffer cache size
+- BATCH_SIZE = 256      : minibatch size which designates the amount of experience tuples which are extracted from Buffer for each step of learning
+- GAMMA = 0.99          : discount factor
+- TAU = 1e-3            : parameter to control the speed of soft update of target network parameters
+- LR_ACTOR = 1e-3       : learning rate of the actor 
+- LR_CRITIC = 1e-3      : learning rate of the critic
+- UPDATE_EVERY = 20     : number of steps between every round of updates
+- N_UPDATES = 10        : number of batches in a single round of updates
+
+**Special important values are the UPDATE_EVERY and N_UPDATES hyper-parameters**. N_UPDATES designates how many times learning is iterated at each time step learning when it is decided to learn.
+Since, N_UPDATES value is 10, this means that at each time step when learning is to be attempted, the exercise of taking batch of samples and learning from them is done 10 times before
+moving to the next timestep.
+UPDATE_EVERY designates after how many time steps should we attempt to do learning. It is observed that if we attempt to do learning at each time step then the learning results in much 
+fluctuations and not able to converge.
+
+Another important set of parameters which are necessary to be set properly are **parameters pertaining to Noise following Ornstein-Uhlenbeck process**. In this project, theta is set to 0.04 and sigma is set to 0.02. If higher values are set for these parameters
+the actor is not able to train faster and converge because the noise factor becomes high, thus, it becomes difficult for the training algorithm to zero in to the optimal policy.
+
+**Batch normalization turned out to be really helpful** Without batch normalizing layers the models were not able to converge faster. I observed that adding each normalization layer one by one resulted in significant improvement.
+
+## Results
+
+The agent converges and solves the environment in 163 Episodes. The Score vs Episodes plot of training is as shown below:
+
+![Alt Text](images/results.PNG)
+
+## Future improvements
+
+- Instead of random selection of tuples from replay buffer use prioritized replay which could lead to even faster convergence.
+- Try solving this environment using other techniques such as TRPO and PPO.
+- Instead of just using one agent as done in this project, try solving using multi agent approach like done in A3C algorithm. This will allow us to use multi agent working parallel at the same time to extract samples thus avoiding the use of Replay Buffer and exploiting parallel processing and/or distributed computing.
