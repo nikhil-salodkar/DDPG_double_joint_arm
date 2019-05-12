@@ -17,10 +17,10 @@ In this project we choose to use DDPG (Deep deterministic policy gradient) algor
 
 ### About the Algorithm
 
-The DDPG algorithm maintains a parametrized actor function ![Alt Text](images/actor_symbol.png) which specifies the current policy by deterministically mapping states to a specific action. The Critic ![Alt Text](critic_symbol) is learned using the Bellman equation as in Q-learning.
+The DDPG algorithm maintains a parametrized actor function ![Alt Text](images/actor_symbol.PNG) which specifies the current policy by deterministically mapping states to a specific action. The Critic ![Alt Text](critic_symbol) is learned using the Bellman equation as in Q-learning.
 The actor is updated by applying the chain rule to the expected return from the start distribution J with respect to the actor parameters :
 
-![Alt Text](images/ddpg_learning.png)
+![Alt Text](images/ddpg_learning.PNG)
 
 #### Use of Replay buffer
 
@@ -42,11 +42,11 @@ In this algorithm, this issue is addressed by adapting a recent technique in dee
 
 A major challenge in learning in continuous action spaces is exploration. An advantage of off policy algorithms such as DDPG is that we can treat the problem of exploration independently from the learning algorithm. Here, exploration policy is constructed by adding noise sampled from a process N to actor policy. Ornstein-Uhlenbeck process has been chosen as Noise process.
 
-![Alt Text](images/noise.png)
+![Alt Text](images/noise.PNG)
 
 #### DDPG Algorithm
 
 The DDPG algorithm as specified in the paper is shown below for convenience :
 
-![Alt Text](images/ddpg_algorithm.png)
+![Alt Text](images/ddpg_algorithm.PNG)
 
