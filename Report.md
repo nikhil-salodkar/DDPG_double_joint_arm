@@ -17,7 +17,7 @@ In this project we choose to use DDPG (Deep deterministic policy gradient) algor
 
 ### About the Algorithm
 
-The DDPG algorithm maintains a parametrized actor function ![Alt Text](images/actor_symbol.PNG) which specifies the current policy by deterministically mapping states to a specific action. The Critic ![Alt Text](critic_symbol) is learned using the Bellman equation as in Q-learning.
+The DDPG algorithm maintains a parametrized actor function ![Alt Text](images/actor_symbol.PNG) which specifies the current policy by deterministically mapping states to a specific action. The Critic ![Alt Text](critic_symbol.PNG) is learned using the Bellman equation as in Q-learning.
 The actor is updated by applying the chain rule to the expected return from the start distribution J with respect to the actor parameters :
 
 ![Alt Text](images/ddpg_learning.PNG)
